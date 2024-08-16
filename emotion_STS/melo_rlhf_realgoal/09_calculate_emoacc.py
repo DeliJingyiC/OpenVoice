@@ -310,8 +310,8 @@ if __name__ == '__main__':
     # print(val)
     # print(val_mean)
 
-    # wav, sr = librosa.load('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_56370_real/000881_happy_to_surprise_G_56370.wav', 16000)
-    # wav1, sr1 = librosa.load('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/eval_ref_audio/real/Neutral-Surprise-0013_000017.wav', 16000)
+    # wav, sr = librosa.load('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/real/real/G_57570_ch3.wav', 16000)
+    # wav1, sr1 = librosa.load('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/0007_000775.wav', 16000)
     # y = process_func(np.expand_dims(wav, 0), sr, embeddings=True)[0]
     # y1 = process_func(np.expand_dims(wav1, 0), sr1, embeddings=True)[0]
     # print(y1)
@@ -325,7 +325,7 @@ if __name__ == '__main__':
     val=[]
     df = pd.DataFrame()
     adict={}
-    real_audio_file='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_56480_real/eval.csv'
+    real_audio_file='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_61900_ch/eval.csv'
     real_audio_data=pd.read_csv(real_audio_file)
     df_real=pd.DataFrame(real_audio_data)
     for i_r, row_r in df_real.iterrows():

@@ -95,7 +95,7 @@ def main(
         # print(len(f))
         # input()
         for line in f.readlines():
-            utt, spk, input_audio, language, emo,real_wav,real_emo = line.strip().split("|")
+            utt, spk, input_audio, emo,emo_path,real_wav,real_emo,real_emo_path = line.strip().split("|")
             spk_utt_map[spk].append(line)
 
             if spk not in spk_id_map.keys():

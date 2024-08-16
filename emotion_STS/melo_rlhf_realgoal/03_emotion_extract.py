@@ -81,7 +81,7 @@ def process_func(
     y = processor(x, sampling_rate=sampling_rate)
     y = y['input_values'][0]
     y = torch.from_numpy(y).to(device)
-    # y = y.unsqueeze(0)
+    y = y.unsqueeze(0)
     # run through model
     with torch.no_grad():
         y = model(y)[0]
@@ -138,7 +138,7 @@ if __name__ == '__main__':
     # parser.add_argument('--filelists', dest='filelists',nargs="+", type=str, help='path of the filelists')
     # args = parser.parse_args()
     pattern='**/*.wav'
-    directory='/home/ubuntu/OpenVoice/data/AINN/ref'
+    directory='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_60120_eng'
     # directory='/home/ubuntu/efs/sts/train/tts'
 
     for file in glob(os.path.join(directory, pattern), recursive=True):

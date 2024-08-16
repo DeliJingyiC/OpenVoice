@@ -94,7 +94,7 @@ audiopath=['/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/eval_input_audio/real/0
 # audiopath=['/home/ubuntu/OpenVoice/emotion_STS/esd/input/0013_000017.wav']
 
 # emo='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/eval_ref_audio/real2/0011_000488_angry.wav.emo.npy'
-emo='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/eval_ref_audio/real2/0017_000486_angry.wav.emo.npy'
+emo='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo_esd-11/example/evaluation/0007_000775.wav.emo.npy'
 # emo='/home/ubuntu/efs/sts/CREMA-D/AudioWAV/1080_TIE_ANG_XX.wav.emo.npy'
 # emo='/home/ubuntu/efs/sts/train/tts/51028_sad_tts.wav.emo.npy'
 # emo='/home/ubuntu/efs/CREMA-D/AudioWAV/1001_MTI_ANG_XX.wav.emo.npy'

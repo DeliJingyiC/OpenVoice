@@ -15,7 +15,7 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 config_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo_/example/config.json'
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo/logs/example/G_6600.pth'
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_emo/ckpt/G_46800.pth'
-ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/G_56270.pth'
+ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/ckpts/ESD_cheng/G_56040.pth'
 model = STS(device=device,config_path=config_path,ckpt_path=ckpt_path)
 speaker_ids = model.hps.data.spk2id
 cwd=os.getcwd()

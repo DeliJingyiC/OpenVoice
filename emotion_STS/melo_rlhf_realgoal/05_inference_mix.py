@@ -17,12 +17,12 @@ config_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/exam
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo/logs/example/G_6600.pth'
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_emo/ckpt/G_46800.pth'
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/G_58630.pth'
-ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/G_62790.pth'
+ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/G_61330.pth'
 model = STS(device=device,config_path=config_path,ckpt_path=ckpt_path)
 speaker_ids = model.hps.data.spk2id
 cwd=os.getcwd()
 output_directory=ckpt_path.split('/')[-3] + '/' + ckpt_path.split('/')[-2]
-output_dir=f'{cwd}/{output_directory}/evaluation/G_62790_ch'
+output_dir=f'{cwd}/{output_directory}/evaluation/G_61330_ch'
 ckpt_num=ckpt_path.split('/')[-1].split('.')[0]
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)

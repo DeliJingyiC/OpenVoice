@@ -7,7 +7,7 @@ bash train.sh /home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/data/example
 bash /home/ubuntu/OpenVoice/MeloTTS/melo/train.sh /home/ubuntu/OpenVoice/MeloTTS/melo/logs/configs/config.json 1
 
 ###NISQA
-python run_predict.py --mode predict_dir --pretrained_model weights/nisqa.tar --data_dir /home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_56480_real --num_workers 0 --bs 10 --output_dir /home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_56480_real
+python run_predict.py --mode predict_dir --pretrained_model weights/nisqa.tar --data_dir /home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_60120_eng --num_workers 0 --bs 10 --output_dir /home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_60120_eng
 python run_predict.py --mode predict_file --pretrained_model weights/nisqa.tar --deg /home/ubuntu/OpenVoice/emotion_STS/melo_emo/evaluation/458_2922_10000_sad.wav --output_dir /home/ubuntu/OpenVoice/emotion_STS/melo_emo/generate_audio
 
 bash train.sh /home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/config.json 1

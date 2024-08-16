@@ -98,7 +98,6 @@ for i_ref in tqdm(ref_csv_data1):
     emo=i_ref[2]
     emopath=i_ref[3]
 
-    real_path, real_emo_path, real_goal_path = get_matching_paths(emo_dic)
     
     for j_conv in (conv_csv_data1):
         if j_conv[4]==emo:
@@ -108,9 +107,10 @@ for i_ref in tqdm(ref_csv_data1):
             for k in (conv_csv_data1):
                 if k[4] !=emo and k[1]==speaker and k[3]==text:
                     input_path=k[0]
+                    real_path, real_emo_path, real_goal_path = get_matching_paths(emo_dic)
                     txt=f'{goal_path}|{speaker}|{input_path}|{emo}|{emopath}|{real_path}|{real_emo_path}|{real_goal_path}'
                     print(txt)
-                    with open('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/metadata_train_with_RealAudio_esd.list', 'a') as tf:
+                    with open('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/metadata_train_with_RealAudio_esd_mix.list', 'a') as tf:
                         tf.write(f'{txt}\r\n') 
 
 

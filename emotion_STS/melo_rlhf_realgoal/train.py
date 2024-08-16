@@ -1,6 +1,11 @@
 #!/home/ubuntu/OpenVoice/.openvoiceenv/bin/python
 # flake8: noqa: E402
 
+"""
+
+"""
+
+
 import os
 import torch
 from torch.nn import functional as F
@@ -2515,13 +2520,13 @@ def train_and_evaluate(
                 print('log_p_reward_yhat',log_p_reward_yhat)
                 print('speaker_reward_list',speaker_reward_list)
 
-                reward=1*emotion_reward_list -0.1*loss_gen_all
+                reward=1*emotion_reward_list -(0.02*loss_gen_all-1)
                 # reward=0*speaker_reward_list+1*emotion_reward_list -1*loss_gen_all
 
                 # reward=-emotion_loss-loss_gen_all
 
                 # total_loss=loss_gen_all
-
+                base_reward=loss_gen_all
                 log_p_pre_syn = log_p_pre_syn.squeeze()
                 print('log_p_pre_syn',log_p_pre_syn)
                 print('KL_',KL_)
@@ -2588,7 +2593,7 @@ def train_and_evaluate(
 
                 reward_for_tensorboard=torch.mean(reward,dim=0).item()
                 print('reward_for_tensorboard',reward_for_tensorboard)
-                emotion_loss=torch.mean(emotion_loss,dim=0).item()
+                emotion_reward_list=torch.mean(emotion_reward_list,dim=0).item()
                 print('emotion_loss',emotion_loss)
 
                 # speaker_reward_list=torch.mean(speaker_reward_list,dim=0).item()
@@ -2606,7 +2611,8 @@ def train_and_evaluate(
                     "loss": loss_gen_all,
                     ##July 22
                     "total_reward": reward_for_tensorboard,
-                    'emotion_loss':emotion_loss,
+                    'emotion_loss':emotion_reward_list,
+                    'base_reward':base_reward,
                     # "speaker_reward": speaker_reward_list,
                     # "emotion_reward": emotion_reward_list,
                     # "l1_losses": l1_losses,

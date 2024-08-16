@@ -7,7 +7,7 @@ import random
 from glob import glob
 
 
-file_ad='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/esd_info.csv'
+file_ad='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/esd_info_ch.csv'
 df = pd.DataFrame()
 adict={}
 
@@ -19,4 +19,4 @@ df_sorted['txt_normalized'] = df_sorted.groupby(['spk', 'emo'])['txt'].rank(meth
 df_sorted = df_sorted.reset_index(drop=True)
 
 
-df_sorted.to_csv('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/esd_info_txtnormal.csv')
+df_sorted.to_csv('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/esd_info_eng_txtnormal.csv')

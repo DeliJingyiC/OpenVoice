@@ -28,14 +28,13 @@ for file in glob(os.path.join(directory, emo_pattern), recursive=True):
     txt=file.split('/')[-1].split('_')[1].split('.')[0]
     emo=file.split('/')[-2]
     wav_file=file.split('.')[0]+'.wav'
-    # print(wav_file)
-    # input()
-    adict['spk']=spk
-    adict['txt']=txt
-    adict['emo']=emo.lower()
-    adict['emo_address']=file
-    adict['wav_address']=wav_file
+    if int(spk) <=10:
+        adict['spk']=spk
+        adict['txt']=txt
+        adict['emo']=emo.lower()
+        adict['emo_address']=file
+        adict['wav_address']=wav_file
 
-    df = pd.concat([df, pd.DataFrame([adict])],ignore_index=True)
+        df = pd.concat([df, pd.DataFrame([adict])],ignore_index=True)
 
-df.to_csv('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/esd_info.csv')
+df.to_csv('/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf/data/example/esd_info_ch.csv')

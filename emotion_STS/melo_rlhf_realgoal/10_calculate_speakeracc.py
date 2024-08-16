@@ -15,7 +15,7 @@ from scipy.spatial.distance import cdist
 classifier_skid = wespeaker.load_model('english')
 # # # ###our_SPS_Eval
 val=[]
-real_audio_file='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_56480_real/eval.csv'
+real_audio_file='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_60120_eng/eval.csv'
 real_audio_data=pd.read_csv(real_audio_file)
 df_real=pd.DataFrame(real_audio_data)
 for i_r, row_r in df_real.iterrows():
@@ -63,23 +63,21 @@ print('val_sim_mean',val_sim_mean)
 
 
 
-######Seq2Seq-EVC
+# #####Seq2Seq-EVC
 # val=[]
 # pattern='**/*.wav'
-# directory='/home/ubuntu/OpenVoice/emotion_STS/eval_data/Seq2Seq-EVC'
-# directoryesd='/home/ubuntu/OpenVoice/emotion_STS/eval_data/esd/input'
+# directory='/home/ubuntu/OpenVoice/data/Seq2Seq-EVC'
+# directoryesd='/home/ubuntu/OpenVoice/data/input'
 # alist=[]
-
 # for file in glob(os.path.join(directory, pattern), recursive=True):
 #     alist.append(file)
 # for file2 in glob(os.path.join(directoryesd, pattern), recursive=True):
 #     name=file2.split('.')[0].split('/')[-1]
-#     print(name)
 #     for i in alist:
 #         filename=str(i).split('.')[0].split('/')[-1]
 #         filename2=filename[0]+'_'+filename[1]
-
 #         if filename ==name:
+            
 #             y =classifier_skid.extract_embedding(file2)
 #             y1 = classifier_skid.extract_embedding(i)
 #             # distance = cdist(y, y1, metric="cosine")[0,0]
@@ -88,6 +86,7 @@ print('val_sim_mean',val_sim_mean)
 #             # val_2.append(distance)
 #             # val.append(cos_sim)
 #             val.append(similarity)
+            
 # # val_mean=np.mean(val)
 # # val_dis=np.mean(val_2)
 # val_sim_mean=np.mean(val)

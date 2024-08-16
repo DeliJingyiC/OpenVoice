@@ -14,7 +14,7 @@ mcd_toolbox = Calculate_MCD(MCD_mode="plain")
 
 ####our_SPS_Eval2
 val=[]
-real_audio_file='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_56480_real/eval.csv'
+real_audio_file='//home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/evaluation/G_60120_eng/eval.csv'
 real_audio_data=pd.read_csv(real_audio_file)
 df_real=pd.DataFrame(real_audio_data)
 for i_r, row_r in df_real.iterrows():

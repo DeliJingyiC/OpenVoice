@@ -15,12 +15,12 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 config_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo_/example/config.json'
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo/logs/example/G_6600.pth'
 # ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_emo/ckpt/G_46800.pth'
-ckpt_path='/home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/G_56480.pth'
+ckpt_path='//home/ubuntu/OpenVoice/emotion_STS/melo_rlhf_realgoal/logs_emo/example/G_61900.pth'
 model = STS(device=device,config_path=config_path,ckpt_path=ckpt_path)
 speaker_ids = model.hps.data.spk2id
 cwd=os.getcwd()
 output_directory=ckpt_path.split('/')[-3] + '/' + ckpt_path.split('/')[-2]
-output_dir=f'{cwd}/{output_directory}/evaluation/G_56480_real'
+output_dir=f'{cwd}/{output_directory}/evaluation/G_61900_eng'
 ckpt_num=ckpt_path.split('/')[-1].split('.')[0]
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
@@ -45,6 +45,9 @@ inf={}
 for ainn_file in glob(os.path.join(AINN_output, wav_pattern), recursive=True):
     input_name=ainn_file.split('/')[-1].split('_')[0]+'_'+ainn_file.split('/')[-1].split('_')[1]
     ref_name=ainn_file.split('/')[-1].split('_')[2]+'_'+ainn_file.split('/')[-1].split('_')[3]
+    emo_name=ainn_file.split('/')[-1].split('_')[-1].split('2')[-1].split('.')[0]
+    # print('emo_name',emo_name)
+    # input()
 
     for file in glob(os.path.join(real_audio_directory, wav_pattern), recursive=True):
         audiopath=[file]
@@ -57,7 +60,7 @@ for ainn_file in glob(os.path.join(AINN_output, wav_pattern), recursive=True):
             if file_input ==input_name and file2_ref==ref_name:
                 inf['reference_audio']=file2
                 inf['input_audio']=file
-                output_path=f'{output_dir}/{input_name}_to_{file2_ref}_{ckpt_num}.wav'
+                output_path=f'{output_dir}/{input_name}_to_{file2_ref}_{emo_name}_{ckpt_num}.wav'
                 inf['output_audio']=output_path
                 emo=file2
                 model.sts_to_file(audiopath,emo,output_path)
